@@ -7,6 +7,9 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * zhangning 10:29
+ */
 public class BIOEchoClient {
     public static void main(String[] args) throws Exception {
         Socket client = new Socket(HostInfo.HOST_NAME, HostInfo.PORT);  // 定义连接的主机信息
