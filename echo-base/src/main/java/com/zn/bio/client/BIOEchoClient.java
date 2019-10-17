@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  * zhangning 10:29
- * 再次提交3
+ * 再次提交44
  */
 public class BIOEchoClient {
     public static void main(String[] args) throws Exception {
@@ -30,6 +30,4 @@ public class BIOEchoClient {
         }
         client.close();
     }
-
-
 }
