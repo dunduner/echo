@@ -1,6 +1,7 @@
 package com.zn.bio.server;
 
 import com.zn.info.HostInfo;
+import com.zn.util.InputUtil;
 
 import java.io.IOException;
 import java.io.PrintStream;
@@ -34,6 +35,7 @@ public class BIOEchoServer {
         public EchoClientHandler(Socket client) throws IOException {
             this.client = client;
             this.scanner = new Scanner(this.client.getInputStream());
+            this.scanner.useDelimiter("\n");
             this.out = new PrintStream(this.client.getOutputStream());
         }
 
@@ -42,12 +44,13 @@ public class BIOEchoServer {
             while (flag){
                 if(scanner.hasNext()){
                     String val = scanner.next().trim();
-                    System.out.println("服务器端："+val);
+                    System.out.println("客户端说的话："+val);
                     if("byebye".equalsIgnoreCase(val)){
                         out.println("再见！");
                         flag =false;
                     }else{
-                        out.println("echo："+val);
+                        String inputData = InputUtil.getKeyInfoString("服务器端要说的内容：").trim();
+                        out.println("服务器端回复的话："+inputData);
                     }
                 }
             }
